@@ -1,0 +1,15 @@
+# Lean build artifacts
+.lake/
+build/
+leanpkg.path
+*.olean
+*.ilean
+
+# Editor
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
