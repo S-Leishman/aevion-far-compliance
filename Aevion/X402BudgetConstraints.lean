@@ -197,10 +197,10 @@ theorem emergency_override_safe
   (tx : Transaction) (s : BudgetState) (j : EmergencyJustification)
   (h_emergency : tx.category = TransactionCategory.Emergency)
   (h_justification : j.isValid)
-  (h_within_emergency : s.emergencySpent + tx.amount ≤ s.totalBudget * (5/100)) :
+  (h_within_emergency : s.emergencySpent + tx.amount ≤ s.totalBudget * (5/100))
+  (h_positive : tx.amount > 0) :
   tx.isSafe s :=
   have h_cat : tx.withinEmergencyBudget s := h_within_emergency
-  have h_amount : tx.amount > 0 := by sorry  -- Assume positive
-  And.intro h_cat h_amount
+  And.intro h_cat h_positive
 
 end Aevion.X402
